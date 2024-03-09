@@ -4,7 +4,7 @@ REF: iFeature: a Python package and web server for features extraction and selec
 (https://academic.oup.com/bioinformatics/article/34/14/2499/4924718)
 
 #Input
-FASTA format 
+FASTA format
 
 #Output
 Selected Feature Descriptor(s)
