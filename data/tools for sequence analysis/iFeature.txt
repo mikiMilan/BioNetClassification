@@ -14,3 +14,4 @@ Group 3:Autocorrelation
 Group 4: C/T/D
 Group 5: Conjoint Triad (Savo?)
 ...
+Group 7: PAAC
