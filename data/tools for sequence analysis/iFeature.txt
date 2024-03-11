@@ -3,15 +3,18 @@ https://ifeature.erc.monash.edu/
 REF: iFeature: a Python package and web server for features extraction and selection from protein and peptide sequences 
 (https://academic.oup.com/bioinformatics/article/34/14/2499/4924718)
 
+#Python codes:
+https://github.com/Superzchen/iFeature/tree/master/codes
+
 #Input
 FASTA format
 
 #Output
 Selected Feature Descriptor(s)
-Group 1: Amino acid composition (Perovic PAAC?)
-Group 2: Grouped amino acid composition (Perovic PAAC?)
+Group 1: Amino acid composition (Perovic DC) Dipeptide Composition (DPC.py)
+Group 2: Grouped amino acid composition 
 Group 3:Autocorrelation
 Group 4: C/T/D
-Group 5: Conjoint Triad (Savo?)
+Group 5: Conjoint Triad (CTriad.py)
 ...
-Group 7: PAAC
+Group 7: Pseudo-Amino Acid Composition (PAAC.py)
