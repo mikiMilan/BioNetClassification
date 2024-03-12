@@ -12,7 +12,7 @@ from sklearn.metrics import accuracy_score, f1_score
 
 # loading graph
 G = nx.Graph()
-with open("data/yeast/BioGRID_withoutLeaves.txt", 'r') as file:
+with open("../data/yeast/BioGRID_withoutLeaves.txt", 'r') as file:
     for line in file:
         line = line.strip()
         nodes = line.split(" ") # ili "\t"
@@ -21,7 +21,7 @@ print(G)
 
 # loading embedding
 embedding_dict = {}
-with open("data/vec/embed-wol-64.txt", "r") as file:
+with open("../data/vec/embed-wol-64.txt", "r") as file:
     for line in file:
         parts = line.strip().split(" ")
         node = parts[0]
@@ -30,7 +30,7 @@ with open("data/vec/embed-wol-64.txt", "r") as file:
 
 # labeling
 labels = {}
-with open("data/yeast/disprotYeast194_withoutLeaves.txt", 'r') as file:
+with open("../data/yeast/disprotYeast194_withoutLeaves.txt", 'r') as file:
     for line in file:
         line = line.strip()
         labels[line] = 1

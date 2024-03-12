@@ -33,11 +33,11 @@ def get_protein_sequence(systematic_name):
         return "X", "name not found"
 
 
-file_path = "data/yeast/BioGRID.txt"
+file_path = "../data/yeast/BioGRID.txt"
 G = nx.Graph()
 downloaded = []
 
-with open('sequences.txt', 'r') as file:
+with open('../data/sequences.txt', 'r') as file:
     for line in file:
         line = line.strip()
         nodes = line.split(" ") # ili "\t"
@@ -59,5 +59,5 @@ for node in G.nodes():
         sequence = get_protein_sequence(node)
         print(sequence)
 
-        with open('sequences.txt', 'a') as file_seq:
+        with open('../data/sequences.txt', 'a') as file_seq:
             file_seq.write(node + " " + sequence[0] + " " + sequence[1] + "\n")

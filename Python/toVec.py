@@ -15,7 +15,7 @@ def ntv(G, embedding_file):
             file.write(line)
 
 
-file_path = "data/yeast/BioGRID_withoutLeaves.txt"
+file_path = "../data/yeast/BioGRID_withoutLeaves.txt"
 G = nx.Graph()
 
 with open(file_path, 'r') as file:
@@ -26,4 +26,4 @@ with open(file_path, 'r') as file:
         G.add_edge(nodes[0], nodes[1])
 print(G)
 
-ntv(G, 'data/vec/embed-wol-32.txt')
+ntv(G, '../data/vec/embed-wol-32.txt')

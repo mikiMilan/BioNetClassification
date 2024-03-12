@@ -2,14 +2,14 @@ import networkx as nx
 
 
 G = nx.Graph()
-with open("data/yeast/BioGRID.txt", 'r') as file:
+with open("../data/yeast/BioGRID.txt", 'r') as file:
     for line in file:
         line = line.strip()
         nodes = line.split("\t")
         G.add_edge(nodes[0], nodes[1])
 
 labels = []
-with open("data/yeast/disprotYeast194.txt", 'r') as file:
+with open("../data/yeast/disprotYeast194.txt", 'r') as file:
     for line in file:
         line = line.strip()
         labels.append(line)
@@ -40,9 +40,9 @@ for i in G.nodes:
 
 print(counter1, counter2)
 
-file_path = "data/yeast/BioGRID_withoutLeaves.txt"
+file_path = "../data/yeast/BioGRID_withoutLeaves.txt"
 nx.write_edgelist(G, file_path)
-with open("data/yeast/disprotYeast194_withoutLeaves.txt", 'w') as file:
+with open("../data/yeast/disprotYeast194_withoutLeaves.txt", 'w') as file:
     # Iteriranje kroz svaki element liste
     for element in labels[:len(labels)-1]:
         # Zapisivanje elementa u zaseban red datoteke
