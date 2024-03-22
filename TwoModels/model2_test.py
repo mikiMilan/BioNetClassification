@@ -17,45 +17,66 @@ labeled_nodes, unlabeled_nodes = train_test_split(list(graph.nodes()), test_size
 
 X_train = np.array([embeddings[node] for node in labeled_nodes])
 y_train = np.array([labels.get(node, 0) for node in labeled_nodes])
+X_train_c, y_train_c = remove_rand(X_train, y_train, 0.5)
 
-model1 = SVC(class_weight='balanced', probability=True)
-X_train_c, y_train_c = remove_rand(X_train, y_train, 0.95)
+model1 = SVC(class_weight='balanced', probability=True, random_state=42)
+model2 = RandomForestClassifier(class_weight='balanced', random_state=42)
+model21 = GradientBoostingClassifier(random_state=42)
 model1.fit(X_train_c, y_train_c)
-# model1.fit(X_train, y_train)
+model2.fit(X_train_c, y_train_c)
+model21.fit(X_train_c, y_train_c)
 
-# y_train_pred_c = model1.predict(X_train_c)
-# print(classification_report(y_train_c, y_train_pred_c))
-#
 y_train_pred = model1.predict(X_train)
 print(classification_report(y_train, y_train_pred))
+y_train_pred = model2.predict(X_train)
+print(classification_report(y_train, y_train_pred))
+y_train_pred = model21.predict(X_train)
+print(classification_report(y_train, y_train_pred))
 
-probabilities = model1.predict_proba(X_train)
-threshold = 0.5
-candidates_for_removal = np.where(probabilities[:, 0] > threshold)[0]
-# print(len(candidates_for_removal))
-# for i in candidates_for_removal:
-#     if y_train[i] == 1:
-#         print("--", i, y_train_pred[i])
-len(candidates_for_removal)
+threshold = 0.95
+
+probabilities1 = model1.predict_proba(X_train)
+candidates_for_removal1 = np.where(probabilities1[:, 0] > threshold)[0]
+print("1. ", len(candidates_for_removal1))
+probabilities2 = model2.predict_proba(X_train)
+candidates_for_removal2 = np.where(probabilities2[:, 0] > threshold)[0]
+print("2. ", len(candidates_for_removal2))
+probabilities21 = model21.predict_proba(X_train)
+candidates_for_removal21 = np.where(probabilities21[:, 0] > threshold)[0]
+print("3. ", len(candidates_for_removal21))
+
+candidates_for_removal = list(set(candidates_for_removal1) & set(candidates_for_removal2) & set(candidates_for_removal21))
+
+print("4. ", len(candidates_for_removal))
 
 X_train_b, y_train_b = np.delete(X_train, candidates_for_removal, axis=0), np.delete(y_train, candidates_for_removal)
-model2 = SVC(class_weight='balanced')
-model2.fit(X_train_b, y_train_b)
-y_train_pred_b = model2.predict(X_train_b)
+model3 = SVC(class_weight='balanced')
+model3.fit(X_train_b, y_train_b)
+y_train_pred_b = model3.predict(X_train_b)
 print(classification_report(y_train_b, y_train_pred_b))
 
 print("-" * 50)
+
+threshold = 0.95
+
 #
 X_test = np.array([embeddings[node] for node in unlabeled_nodes])
 y_true = np.array([labels.get(node, 0) for node in unlabeled_nodes])
 
-y_pred = model1.predict(X_test)
-print(classification_report(y_true, y_pred))
+probabilities1 = model1.predict_proba(X_test)
+candidates_for_removal1 = np.where(probabilities1[:, 0] > threshold)[0]
+print("1. ", len(candidates_for_removal1))
+probabilities2 = model2.predict_proba(X_test)
+candidates_for_removal2 = np.where(probabilities2[:, 0] > threshold)[0]
+print("2. ", len(candidates_for_removal2))
+probabilities21 = model21.predict_proba(X_test)
+candidates_for_removal21 = np.where(probabilities21[:, 0] > threshold)[0]
+print("2. ", len(candidates_for_removal21))
 
-probabilities = model1.predict_proba(X_test)
-threshold = 0.8
-candidates_for_removal = np.where(probabilities[:, 0] > threshold)[0]
+candidates_for_removal = list(set(candidates_for_removal1) & set(candidates_for_removal2) & set(candidates_for_removal21))
 
-X_test_c, y_true_c = np.delete(X_test, candidates_for_removal, axis=0), np.delete(y_true, candidates_for_removal)
-y_pred_c = model2.predict(X_test_c)
-print(classification_report(y_true_c, y_pred_c))
+print("3. ", len(candidates_for_removal))
+
+X_test_b, y_true_b = np.delete(X_test, candidates_for_removal, axis=0), np.delete(y_true, candidates_for_removal)
+y_true_pred_b = model3.predict(X_test_b)
+print(classification_report(y_true_b, y_true_pred_b))
