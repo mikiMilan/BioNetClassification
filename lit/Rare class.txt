@@ -1,0 +1,8 @@
+#Mining needle in a haystack: classifying rare classes via two-phase rule induction
+https://dl.acm.org/doi/abs/10.1145/375663.375673
+
+#Predicting Rare Classes: Comparing Two-Phase Rule Induction to Cost-Sensitive Boosting
+https://link.springer.com/chapter/10.1007/3-540-45681-3_20#preview
+
+#Two-step ensemble under-sampling algorithm for massive imbalanced data classification
+https://www.sciencedirect.com/science/article/abs/pii/S0020025524002640
