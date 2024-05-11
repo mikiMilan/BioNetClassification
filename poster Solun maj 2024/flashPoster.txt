@@ -1,0 +1,37 @@
+Flash poster presentation
+
+Introduction:
+
+Traditional methods used for IDP classification primarily rely on information obtained from secondary structures or amino acid sequences. Integrating data from PPI networks can improve IDP classification as PPI networks leverages the rich information contained in protein interactions which can enhance biological relevance of classification results. In this research, we combine data from different sources, including PPI networks and protein sequences, and test accuracy of classification models.
+
+Methodology - Data preparation:
+
+The original PPI network is unweighted. Weight is assigned to the edges of this network, and for each pair (P,Q) of proteins in the PPI network, the Adjusted Correlation Score (ACS) is computed. ACS measures the weighted correlation for the genes corresponding to proteins P and Q, utilizing the SPELL engine.
+
+Subsequently, this network undergoes node2vec+ processing, generating 128 attributes based on random walks. 
+
+Additionally, 60 attributes are extracted based on amino acid sequence information, considering specific properties:
+
+A) Order/disorder promoting amino acids, 
+and
+B) Five physicochemical properties:
+BA) Aromatic/Aliphatic
+BB) Polar/Non-Polar
+BC) Non-Zero/Zero
+BD) Hydrophobic/Hydrophilic
+BE) Positive/Negative
+
+Resulting in 60 features extracted from protein sequences.
+
+Methodology - Data classification:
+
+The data classification process begins with forming training and test sets, maintaining a 70:30 ratio while ensuring stratification to preserve class distribution. The training set is then resampled using SMOTEEN to address class imbalance. Subsequently, the data is scaled using MinMaxScaler to normalize feature values. Hyperparameters of the KNN classifier are fine-tuned using GridSearchCV to optimize model performance. The model is trained on the resampled training set and evaluated to assess its effectiveness in classification tasks.
+
+
+Results:
+
+Based on the provided table, it is evident that combining different groups of attributes yields similar results. The highest F1 score is attained when exclusively employing network-derived attributes (Node2vec+), whereas utilizing all the considered attributes predicts the most intrinsically disordered proteins (IDPs). 
+
+Conclusion:
+
+Preliminary findings suggest that integrating attributes from both network and sequence has potential, opening avenues for further methodological improvements. In order to further investigate the capability of this approach, it should be applied on other networks of different organisms, including human networks. Additionally, combining existing attributes with those derived from other protein characteristics could be a promising direction for future research. 
