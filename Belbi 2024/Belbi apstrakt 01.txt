@@ -1,0 +1,18 @@
+Exploration of Intrinsic Disorder Regions Through Classification of Intrinsically Disordered Proteins Using PPI Network Structure and Sequence Attributes: A Case Study
+
+In this study, we explored the prediction of Intrinsically Disordered Proteins (IDPs) by utilizing the structure of Protein-Protein Interaction (PPI) networks and sequence characteristics. Using a weighted PPI network, where edge weights represent gene co-expression information between two proteins, we extracted attributes related to protein topological properties via the node2vec+ tool. Additionally, we incorporated attributes derived from primary sequence information, focusing on amino acid properties such as order/disorder promotion (Type A attributes) and physicochemical properties including aromaticity, polarity, and hydrophobicity (Type B attributes).
+
+We classified proteins into IDP and non-IDP categories using a K-Nearest Neighbors (KNN) classifier under four scenarios: (1) based solely on network attributes, (2) incorporating network attributes and sequence Type A attributes, (3) incorporating network attributes and sequence Type B attributes, and (4) considering network attributes along with both sequence Type A and Type B attributes. Some proteins misclassified as IDPs in all four scenarios were further examined using the IUPred2 tool, revealing that only a subset of these proteins indeed possess intrinsic disorder regions (IDRs) along their sequences.
+
+This study is conducted as a case study using the PPI network model of the yeast organism from the BioGRID database, with the list of yeast IDP proteins sourced from the DisProt database. Gene co-expression information was obtained using the SPELL tool.
+
+
+###pasiv:
+
+In this study, the prediction of Intrinsically Disordered Proteins (IDPs) was explored by utilizing the structure of Protein-Protein Interaction (PPI) networks and sequence characteristics. A weighted PPI network, where edge weights represented gene co-expression information between two proteins, was used to extract attributes related to protein topological properties via the node2vec+ tool. Additionally, attributes derived from primary sequence information were incorporated, focusing on amino acid properties such as order/disorder promotion (Type A attributes) and physicochemical properties including aromatic/aliphatic, polar/non-polar, non-zero/zero, hydrophobic/hydrophilic, and positive/negative (Type B attributes).
+
+Proteins were classified into IDP and non-IDP categories using a K-Nearest Neighbors (KNN) classifier under four scenarios: (1) based solely on network attributes, (2) incorporating network attributes and sequence Type A attributes, (3) incorporating network attributes and sequence Type B attributes, and (4) considering network attributes along with both sequence Type A and Type B attributes. Proteins misclassified as IDPs in these scenarios were further examined using the IUPred2 tool, which revealed that only a subset of these proteins indeed possessed intrinsic disorder regions (IDRs) along their sequences.
+
+This study was conducted as a case study using the PPI network model of the yeast organism from the BioGRID database, with the list of yeast IDP proteins sourced from the DisProt database. Gene co-expression information was obtained using the SPELL tool.
+
+
