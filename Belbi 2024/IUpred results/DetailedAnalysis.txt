@@ -1,0 +1,45 @@
+#YNL245C - CWC25
+SGD: https://www.yeastgenome.org/locus/S000005189/go
+UniProt: https://www.uniprot.org/uniprotkb/P53854/entry
+AlphaFold: https://alphafold.ebi.ac.uk/entry/P53854
+
+#YDL201W - TRM8
+SGD: https://www.yeastgenome.org/locus/S000002360
+UniProt: https://www.uniprot.org/uniprotkb/Q12009/entry
+AlphaFold: https://alphafold.ebi.ac.uk/entry/Q12009
+
+#YDR424C - DYN2
+SGD: https://www.yeastgenome.org/locus/S000002832
+UniProt: https://www.uniprot.org/uniprotkb/Q02647/entry
+AlphaFold: https://alphafold.ebi.ac.uk/entry/Q02647
+
+#YKL103C - APE1
+SGD: https://www.yeastgenome.org/locus/S000001586
+UniProt: https://www.uniprot.org/uniprotkb/P14904/entry
+AlphaFold: https://alphafold.ebi.ac.uk/entry/P14904
+
+#YFR011C - MIC19
+SGD: https://www.yeastgenome.org/locus/S000001907
+UniProt: https://www.uniprot.org/uniprotkb/P43594/entry
+AlphaFold: https://alphafold.ebi.ac.uk/entry/P43594
+
+#YKL172W - EBP2
+SGD: https://www.yeastgenome.org/locus/S000001655
+UniProt: https://www.uniprot.org/uniprotkb/P36049/entry
+AlphaFold: https://alphafold.ebi.ac.uk/entry/P36049
+
+IDPs:
+FUS3 - https://www.uniprot.org/uniprotkb/P16892/entry
+RIP1 - https://www.uniprot.org/uniprotkb/P08067/entry
+NUP133 - https://www.uniprot.org/uniprotkb/P36161/entry
+RPA14 - https://www.uniprot.org/uniprotkb/P50106/entry
+RIF2 - https://www.uniprot.org/uniprotkb/Q06208/entry
+ATG13 - https://www.uniprot.org/uniprotkb/Q06628/entry
+
+nonIDPs:
+NOG2 - https://www.uniprot.org/uniprotkb/P53742/entry
+RSA4 - https://www.uniprot.org/uniprotkb/P25382/entry#structure
+CPR7 - https://www.uniprot.org/uniprotkb/P47103/entry#structure
+NUP170 - https://www.uniprot.org/uniprotkb/P38181/entry#structure
+SRS2 - https://www.uniprot.org/uniprotkb/P12954/entry#structure
+RPL13A - https://www.uniprot.org/uniprotkb/Q12690/entry#structure
